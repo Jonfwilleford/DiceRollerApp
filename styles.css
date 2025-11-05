@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #222;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#dice-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: #333;
+  border-bottom: 2px solid #444;
+}
+
+.add-die {
+  background: linear-gradient(135deg, #444, #222);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border: 1px solid #555;
+  transition: transform 0.1s ease, background 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.add-die:hover {
+  background: #666;
+  transform: translateY(-2px);
+}
+
+#dice-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #2a2a2a;
+  border-bottom: 2px solid #444;
+}
+
+.die {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #555;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-weight: bold;
+  min-width: 80px;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.die:hover {
+  background: #777;
+}
+
+.die select {
+  background: #111;
+  color: #fff;
+  border: 1px solid #666;
+  border-radius: 6px;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+.remove-die {
+  background: #f44336;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.remove-die:hover {
+  background: #c0392b;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#roll-btn {
+  background: #f39c12;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  color: #222;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#roll-btn:hover {
+  background: #d35400;
+}
+
+#result-display {
+  margin-top: 1.5rem;
+  font-size: 2rem;
+}
+
+footer {
+  background: #333;
+  padding: 0.5rem;
+  text-align: center;
+  position: relative;
+}
+
+#history-panel {
+  max-height: 200px;
+  overflow-y: auto;
+  background: #111;
+  border-top: 2px solid #444;
+  padding: 0.5rem;
+}
+
+.hidden {
+  display: none;
+}
