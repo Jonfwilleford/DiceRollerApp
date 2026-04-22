@@ -4,47 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dice Roller</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="dice-bar">
-    <div id="dice-container">
-      <div class="dice-options">
-        <div class="add-die" data-die="4">d4</div>
-        <div class="add-die" data-die="6">d6</div>
-        <div class="add-die" data-die="8">d8</div>
-        <div class="add-die" data-die="10">d10</div>
-        <div class="add-die" data-die="12">d12</div>
-        <div class="add-die" data-die="20">d20</div>
-        <div class="add-die" data-die="100">d%</div>
-        <div class="add-die" data-die="custom">Custom</div>
-      </div>
 
-      <div id="amount-control" class="hidden">
-        <label for="die-amount">Amount:</label>
-        <input type="number" id="die-amount" min="1" max="8" value="1" />
-        <input
-          type="number"
-          id="custom-sides"
-          min="1"
-          max="1000"
-          placeholder="Custom sides"
-          class="hidden"
-        />
-        <button id="confirm-add">Add</button>
+  <div class="noise"></div>
+
+  <div class="app-wrapper">
+
+    <header>
+      <h1 class="logo">⚄ Dice Forge</h1>
+      <p class="tagline">Roll your fate</p>
+    </header>
+
+    <!-- Die type picker -->
+    <section class="die-picker">
+      <div class="die-options">
+        <button class="add-die" data-die="4"><span class="die-label">d4</span></button>
+        <button class="add-die" data-die="6"><span class="die-label">d6</span></button>
+        <button class="add-die" data-die="8"><span class="die-label">d8</span></button>
+        <button class="add-die" data-die="10"><span class="die-label">d10</span></button>
+        <button class="add-die" data-die="12"><span class="die-label">d12</span></button>
+        <button class="add-die" data-die="20"><span class="die-label">d20</span></button>
+        <button class="add-die" data-die="100"><span class="die-label">d%</span></button>
+        <button class="add-die add-die--custom" data-die="custom"><span class="die-label">Custom</span></button>
+      </div>
+    </section>
+
+    <!-- Active dice tray -->
+    <section class="tray-section">
+      <div class="tray-label">Dice Tray</div>
+      <div id="dice-tray">
+        <div class="tray-empty" id="tray-empty">Click a die above to add it</div>
+      </div>
+    </section>
+
+    <!-- Roll button -->
+    <div class="roll-area">
+      <button id="roll-btn">
+        <span class="roll-text">Roll</span>
+        <span class="roll-shortcut">↵</span>
+      </button>
+      <button id="clear-btn" class="clear-btn" title="Clear all dice">Clear</button>
+    </div>
+
+    <!-- Result -->
+    <section class="result-section" id="result-section">
+      <div id="result-display" class="result-display hidden"></div>
+    </section>
+
+    <!-- History -->
+    <section class="history-section">
+      <button id="history-toggle" class="history-toggle">
+        <span>Roll History</span>
+        <span class="toggle-arrow">▾</span>
+      </button>
+      <div id="history-panel" class="history-panel hidden"></div>
+    </section>
+
+  </div>
+
+  <!-- Custom die modal -->
+  <div id="custom-modal" class="modal hidden">
+    <div class="modal-box">
+      <h2>Custom Die</h2>
+      <label>Number of sides
+        <input type="number" id="custom-sides" min="2" max="10000" value="100" />
+      </label>
+      <label>Count
+        <input type="number" id="custom-count" min="1" max="20" value="1" />
+      </label>
+      <div class="modal-actions">
+        <button id="modal-cancel">Cancel</button>
+        <button id="modal-confirm">Add Die</button>
       </div>
     </div>
-  </header>
-
-  <main>
-    <button id="roll-btn">Roll</button>
-    <div id="result-display"></div>
-  </main>
-
-  <footer>
-    <button id="history-toggle">Roll History</button>
-    <div id="history-panel" class="hidden"></div>
-  </footer>
+  </div>
 
   <script src="index.js"></script>
 </body>
